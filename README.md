@@ -12,6 +12,11 @@ tactical minimap.
 [![Python](https://img.shields.io/badge/Python-3.12-1B4D2E?style=flat-square&logo=python&logoColor=white)](https://www.python.org/)
 [![uv](https://img.shields.io/badge/managed%20with-uv-1B4D2E?style=flat-square)](https://docs.astral.sh/uv/)
 [![Ultralytics](https://img.shields.io/badge/YOLO11%20%2B%20YOLOv8--pose-Ultralytics-1B4D2E?style=flat-square)](https://github.com/ultralytics/ultralytics)
+[![License](https://img.shields.io/badge/License-AGPL--3.0-1B4D2E?style=flat-square)](LICENSE)
+
+**[Paper](report/FULBO-paper.pdf)** &nbsp;·&nbsp;
+**[Poster](report/FULBO-poster.pdf)** &nbsp;·&nbsp;
+**[Result videos](https://drive.google.com/drive/folders/1cSUryrantwicC1TyZFKGAUPfLPuZal9v?usp=sharing)**
 
 </div>
 
@@ -49,6 +54,7 @@ frame and renders the output.
 | [`src/train/`](src/train/) | Training scripts for the keypoint models and the detection models. |
 | [`src/inference/`](src/inference/) | Keypoint detection, homography, tracking and minimap rendering. |
 | [`src/evaluation/`](src/evaluation/) | Evaluation scripts and stored metrics for keypoints and tracking. |
+| [`report/`](report/) | The written report and the poster, plus the LaTeX source of the paper. |
 | [`models/`](models/) | Training curves and metrics for every run that was kept. |
 | [`data/`](data/) | Where the datasets live once downloaded and prepared. Only the READMEs are tracked. |
 | `outputs/` | Generated videos and figures. |
@@ -144,6 +150,16 @@ is a real result worth reporting.
 Per-keypoint RMSE, per-frame errors and confidences are stored under
 [`src/evaluation/keypoints/evaluation_outputs/`](src/evaluation/keypoints/evaluation_outputs/).
 
+## Report
+
+The full write-up, in English. Both documents are in [`report/`](report/), along
+with the LaTeX source of the paper.
+
+| [Paper](report/FULBO-paper.pdf) | [Poster](report/FULBO-poster.pdf) |
+|:---:|:---:|
+| [<img src="docs/images/paper-preview.jpg" width="320" alt="First page of the FULBO paper">](report/FULBO-paper.pdf) | [<img src="docs/images/poster-preview.jpg" width="320" alt="The FULBO poster">](report/FULBO-poster.pdf) |
+| Method, experiments and analysis in full. | One-page summary of the pipeline and the headline numbers. |
+
 ## Dead ends
 
 Three things we tried that did not work out. The branches are still up.
@@ -163,6 +179,13 @@ Three things we tried that did not work out. The branches are still up.
   [NikolasEnt/soccernet-calibration-sportlight](https://github.com/NikolasEnt/soccernet-calibration-sportlight).
 - Pitch rendering and configuration come from
   [roboflow/sports](https://github.com/roboflow/sports).
+
+## License
+
+[AGPL-3.0](LICENSE), inherited from Ultralytics YOLO, which the whole pipeline
+runs on. [`NOTICE.md`](NOTICE.md) lists the third-party terms, including two
+upstream sources that ship no license of their own and are used here with
+attribution only.
 
 ## Authors
 

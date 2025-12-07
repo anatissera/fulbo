@@ -1,0 +1,75 @@
+% ---------------------------------------------------------------------------
+% Report metadata
+% ---------------------------------------------------------------------------
+
+\newcommand\reporttitle{Final Project:
+\newline \textbf{FULBO} (\textbf{F}ield \textbf{U}nified \textbf{L}ocalization and \textbf{B}all/player \textbf{O}bservation)}
+
+\newcommand\reportsubtitle{
+I308, Computer Vision (2025)
+}
+
+\newcommand\reportauthors{
+Ana Paula Tissera & 35713 \\
+Valentino Arbelaiz Alberti & 35496 \\
+Franco Amato de Lusarreta & 35221 \\
+}
+
+\newcommand\grouptutor{
+Professor: Gast\'on Castro
+
+Teaching assistants: Esteban Uriza, Agust\'in Roca, Sebasti\'an Bedin
+}
+
+% ---------------------------------------------------------------------------
+% Look and feel
+% ---------------------------------------------------------------------------
+
+% Accent colour, matching the project poster.
+\definecolor{accent}{RGB}{27,77,62}
+
+\hypersetup{
+    colorlinks=true,
+    linkcolor=accent,
+    urlcolor=accent,
+    citecolor=accent
+    }
+\urlstyle{same}
+
+% Bullet styles for itemize, levels 1 to 3
+\renewcommand{\labelitemi}{\scriptsize\textcolor{accent}{$\blacksquare$}}
+\renewcommand{\labelitemii}{\scriptsize\textcolor{accent}{$\square$}}
+\renewcommand{\labelitemiii}{\textcolor{accent}{$\circ$}}
+
+% Bullet styles for enumerate, levels 1 to 3
+\renewcommand{\labelenumi}{\textbf{\textcolor{accent}{\arabic*.}}}
+\renewcommand{\labelenumii}{\textbf{\textcolor{accent}{[\alph*]}}}
+\renewcommand{\labelenumiii}{\textbf{\textcolor{accent}{\roman*.}}}
+
+% Number equations, figures and tables within their section
+\counterwithin{equation}{section}
+\counterwithin{figure}{section}
+\counterwithin{table}{section}
+
+% Header and footer
+\pagestyle{fancy}
+\lhead{\includegraphics[height = 30pt]{figures/udesa-header.png}}
+\rhead{\reporttitle}
+\renewcommand{\footrulewidth}{0.4pt}
+\cfoot{Page \thepage}
+
+% Section headings
+\titleformat{\section}{\sffamily\color{accent}\Large\bfseries}{\thesection\enskip\color{gray}\textbar\enskip}{0cm}{}
+\titleformat{\subsection}{\sffamily\color{accent}\large\bfseries}{\thesubsection\enskip\color{gray}\textbar\enskip}{0cm}{}
+\titleformat{\subsubsection}{\sffamily\color{accent}\bfseries}{\thesubsubsection\enskip\color{gray}\textbar\enskip}{0cm}{}
+
+% Captions
+\DeclareCaptionFont{accent}{\color{accent}}
+\captionsetup{labelfont={accent,bf}}
+
+\usepackage{mlmodern}
+
+\setlength\parindent{15pt}
+
+% Limit the ToC to sections and subsections
+\setcounter{tocdepth}{2}

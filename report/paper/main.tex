@@ -1,0 +1,32 @@
+% FULBO - Field Unified Localization and Ball/player Observation
+% I308 Computer Vision, Universidad de San Andres, Spring 2025
+%
+% Build with:  latexmk -pdf main.tex     (or: pdflatex main && bibtex main && pdflatex main x2)
+
+\documentclass[a4paper, table]{article}
+
+\input{preamble}
+\input{settings}
+
+\begin{document}
+
+\input{sections/00-titlepage}
+\newpage
+
+\setcounter{tocdepth}{3}
+{\hypersetup{linkcolor=black}
+\tableofcontents\thispagestyle{empty}}
+\newpage
+
+\input{sections/01-introduction}
+\pagenumbering{arabic}
+
+\input{sections/02-data}
+\input{sections/03-methods}
+\input{sections/04-results}
+\input{sections/05-conclusion}
+
+\bibliographystyle{plain}
+\bibliography{references.bib}
+
+\end{document}

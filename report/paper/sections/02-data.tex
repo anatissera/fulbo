@@ -1,0 +1,18 @@
+\section{Dataset and characteristics} \label{sec: data}
+\begin{multicols}{2}
+Two datasets from the public \emph{SoccerNet} platform were used to train and evaluate the pipeline.
+
+The first one corresponds to the camera calibration task. It is made up of 20\,028 images taken from 500 matches, annotated with the geometry of the pitch.
+Each image includes line segments representing the markings on the ground: touchlines and goal lines, penalty areas, the centre circle, the arcs and the goalposts, all defined in normalised coordinates \([0,1]\). The data is split into training, validation and test sets.
+
+The original SoccerNet labels are structured for semantic line detection tasks: they describe the geometry of the pitch through pairs of coordinates marking the start and the end of each segment. That format is incompatible with the YOLO pose estimation architecture, because the model requires a fixed list of keypoints in which every index of the output tensor invariably corresponds to one of them. The original data is also geometrically redundant, since the same vertex is represented several times as the endpoint of different lines. The labels therefore had to be preprocessed and turned into an ordered set of coordinates.
+
+Two different keypoint representations were produced. The first one, made up of 29 \emph{keypoints}, follows the structure proposed by the \emph{SoccerNet\_Keypoints} module developed by Adit-jain \cite{soccernet27}. This representation of the pitch has few points around midfield, so an occlusion or a missing point there causes problems. To address it, we looked for a way to generate and detect more points. The second representation, of 57 keypoints, was derived from the work of NikolasEnt \cite{soccernet57}, which adds extra points obtained from fine intersections, ellipse fitting and auxiliary structures of the field.
+
+In both cases, the original segments were turned into points by computing intersections between lines, determining tangent points on curves, and geometrically reconstructing the centre circle and the penalty arcs. The coordinates were then normalised and labels were generated in the format required by YOLOv8 pose, including the attributes $(x, y, \text{visibility})$ for every point.
+
+The second dataset belongs to the SoccerNet \emph{tracking} task. It contains match clips captured exclusively by the main camera, split into 15 to 20 second clips at $1080p$. The labels include \emph{tracklets} for the players, the referees and the ball in every clip. For this work, the annotated bounding boxes were converted to YOLO format and the classes were unified into player, referee and ball. The dataset was used both to train the detection model and to evaluate the ByteTrack-based tracking algorithm.
+
+Preprocessing included normalising the annotation coordinates to the \([0,1]\) range and adapting the SoccerNet JSON files to the structure required by the detection and tracking libraries.
+
+\end{multicols}

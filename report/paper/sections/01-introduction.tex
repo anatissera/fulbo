@@ -1,0 +1,21 @@
+\vspace{0.5cm}
+
+\begin{abstract}
+This work presents a system for detection, tracking and tactical analysis of football sequences using data from the SoccerNet dataset. The approach combines YOLO-based detection models for players, referees and the ball; a tracking module that associates detections over time using geometric and appearance information; similarity grouping through embedding \textit{clustering} for team identification; and homography estimation from 29 and 57 keypoints in order to project the information onto the pitch plane. Quantitative evaluation tools were also developed, covering precision, recall, per-keypoint pixel-wise error and reprojection error, in order to validate the estimated homography. The results show solid performance on still images, whereas video sequences exhibit a degradation associated with changes in lighting, camera angles and \textit{motion blur}, above all in the homography computation. The tracking stage behaved stably in sequences with reliable detections, keeping consistent identities over long intervals. Despite these limitations, the system produces interpretable geometric reconstructions and makes it possible to analyse the spatial occupation and dynamics of the match.
+
+\end{abstract}
+
+
+\section{Introduction} \label{section: introduction}
+
+Football match analysis through computer vision has become an area of growing interest, both in academia and in real scouting, performance and tactical analytics applications. Reliably extracting structured information from video is, however, difficult on several fronts: the game is highly dynamic, occlusions are frequent, cameras vary visually from one broadcast to the next, and small objects such as the ball are hard to detect.
+
+This work develops an end-to-end pipeline aimed at reconstructing the state of the game from video sequences. The system combines object detection, persistent tracking, visual embeddings, keypoint detection and geometric projection of the movement onto a plan view of the pitch.
+
+Players, referees and the ball are detected with \textit{YOLOv11}, splitting the frame into 4 patches for ball detection. \textit{Frame-to-frame} tracking is handled by \textit{ByteTrack}, which keeps identities stable even under partial occlusion or fluctuating confidence. To tell the two teams apart, high-dimensional visual descriptors are extracted with \textit{DINOv2} and then reduced and grouped using \textit{UMAP} and \textit{K-Means}. Pitch keypoints are detected as well, in order to estimate a homography that maps image points onto the plane of play, which in turn allows the detected positions to be projected onto a tactical minimap.
+
+The resulting pipeline is a solid base for more advanced \textit{football analytics} tasks such as positional analysis, tactical pattern detection or automatic identification of relevant actions.
+
+\begin{relsize}{1}
+
+\end{relsize}

@@ -1,0 +1,48 @@
+% ---------------------------------------------------------------------------
+% Packages, grouped by purpose.
+% ---------------------------------------------------------------------------
+
+\usepackage[utf8]{inputenc}     % Special characters in the source
+\usepackage[english]{babel}     % English hyphenation and captions
+
+\usepackage{amsmath, amsthm, amssymb, amsfonts}
+
+\usepackage{graphicx}           % \includegraphics
+\usepackage{float}              % [H] figure placement
+\usepackage{caption}            % Caption customisation
+\usepackage{subcaption}         % Sub-figures
+\usepackage{capt-of}            % Captions outside float environments
+
+\usepackage{tabularx}
+\usepackage{tabu}
+\usepackage{booktabs}
+
+\usepackage[nottoc,numbib]{tocbibind}   % Bibliography in the ToC
+\usepackage[margin = 2.5cm]{geometry}
+\usepackage{microtype}
+\usepackage{titlesec}
+\usepackage{titletoc}
+\usepackage{appendix}
+\usepackage{fancyhdr}
+\usepackage[shortlabels]{enumitem}
+
+\usepackage{hyperref}
+\usepackage[noabbrev, capitalise]{cleveref}
+
+\usepackage{xcolor}
+
+\usepackage{tikz}               % Used to lay out the title page
+\usetikzlibrary{positioning}
+\usetikzlibrary{calc}
+
+\usepackage{multicol}           % Two-column body text
+\usepackage{relsize}
+
+% Helper used by the title page to read back a tikz node coordinate.
+\makeatletter
+\newcommand{\gettikzxy}[3]{%
+  \tikz@scan@one@point\pgfutil@firstofone#1\relax
+  \edef#2{\the\pgf@x}%
+  \edef#3{\the\pgf@y}%
+}
+\makeatother

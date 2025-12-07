@@ -94,3 +94,16 @@ ipython_config.py
 .idea/
 .vscode/
 *.swp
+
+# ---- LaTeX (report/paper) ----
+report/paper/*.aux
+report/paper/*.bbl
+report/paper/*.blg
+report/paper/*.fdb_latexmk
+report/paper/*.fls
+report/paper/*.log
+report/paper/*.out
+report/paper/*.pdf
+report/paper/*.synctex.gz
+report/paper/*.toc
+report/paper/sections/*.aux
